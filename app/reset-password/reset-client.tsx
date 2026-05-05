@@ -85,13 +85,13 @@ export default function ResetPasswordClient() {
         <button
           onClick={handleSubmit}
           disabled={loading}
-          className="w-full bg-black text-white p-3 rounded-lg"
+          className="w-full bg-black text-white p-3 rounded-lg cursor-pointer"
         >
           {loading ? "Resetting..." : "Reset Password"}
         </button>
 
         {message && (
-          <p className="mt-4 text-center text-sm">{message}</p>
+          <p className="mt-4 text-center text-red-500 text-sm">{message}</p>
         )}
       </div>
     </div>
