@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
-export default function ResetPasswordPage() {
+export default function ResetPasswordClient() {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
 
@@ -13,9 +13,17 @@ export default function ResetPasswordPage() {
   const [message, setMessage] = useState("");
 
   const handleSubmit = async () => {
-    if (!password || !confirmPassword) return setMessage("All fields are required");
-    if (password !== confirmPassword) return setMessage("Passwords do not match");
-    if (!token) return setMessage("Invalid or missing token");
+    if (!password || !confirmPassword) {
+      return setMessage("All fields are required");
+    }
+
+    if (password !== confirmPassword) {
+      return setMessage("Passwords do not match");
+    }
+
+    if (!token) {
+      return setMessage("Invalid or missing token");
+    }
 
     try {
       setLoading(true);
@@ -41,14 +49,12 @@ export default function ResetPasswordPage() {
         throw new Error(data.error || "Something went wrong");
       }
 
-      setMessage("✅ Password reset successful! You can login now.");
+      setMessage("✅ Password reset successful!");
       setPassword("");
       setConfirmPassword("");
-    } 
-    catch (err: any) {
+    } catch (err: any) {
       setMessage(err.message);
-    } 
-    finally {
+    } finally {
       setLoading(false);
     }
   };
