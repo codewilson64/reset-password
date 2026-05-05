@@ -62,7 +62,7 @@ export default function ResetPasswordClient() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4">
       <div className="w-full max-w-md bg-white p-6 rounded-2xl shadow-md">
-        <h1 className="text-2xl font-bold mb-4 text-center">
+        <h1 className="text-2xl text-black font-bold mb-4 text-center">
           Reset Password
         </h1>
 
@@ -71,7 +71,7 @@ export default function ResetPasswordClient() {
           placeholder="New password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full border p-3 rounded-lg mb-3"
+          className="w-full border border-gray-300 p-3 rounded-lg mb-3 text-black placeholder:text-gray-500 outline-0"
         />
 
         <input
@@ -79,7 +79,7 @@ export default function ResetPasswordClient() {
           placeholder="Confirm password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          className="w-full border p-3 rounded-lg mb-4"
+          className="w-full border border-gray-300 p-3 rounded-lg mb-3 text-black placeholder:text-gray-500 outline-0"
         />
 
         <button
